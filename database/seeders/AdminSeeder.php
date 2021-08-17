@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
+use Spatie\Permission\Models\Role;
 
 class AdminSeeder extends Seeder
 {
@@ -14,10 +15,14 @@ class AdminSeeder extends Seeder
      */
     public function run()
     {
-        \App\Models\User::factory()->create([
+        $adminRole = Role::create(['name' => 'Super-Admin']);
+
+        $admin = \App\Models\User::factory()->create([
             'name' => 'Super Admin',
             'email' => 'dev@admin.com',
             'password' => Hash::make('admindev')
         ]);
+
+        $admin->assignRole($adminRole);
     }
 }
