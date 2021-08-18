@@ -16,13 +16,20 @@ class AdminSeeder extends Seeder
     public function run()
     {
         $adminRole = Role::create(['name' => 'Super-Admin']);
+        $userRole = Role::create(['name' => 'User']);
 
         $admin = \App\Models\User::factory()->create([
             'name' => 'Super Admin',
             'email' => 'dev@admin.com',
             'password' => Hash::make('admindev')
         ]);
+        $user = \App\Models\User::factory()->create([
+            'name' => 'User',
+            'email' => 'User@admin.com',
+            'password' => Hash::make('admindev')
+        ]);
 
         $admin->assignRole($adminRole);
+        $user->assignRole($userRole);
     }
 }
