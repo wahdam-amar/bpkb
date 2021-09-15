@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\App;
 
 class DatabaseSeeder extends Seeder
 {
@@ -17,7 +18,11 @@ class DatabaseSeeder extends Seeder
 
         $this->call([
             AdminSeeder::class,
-            MenuSeeder::class
+            MenuSeeder::class,
         ]);
+
+        if (App::environment('local')) {
+            $this->call(PersonSeeder::class);
+        }
     }
 }
