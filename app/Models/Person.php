@@ -22,4 +22,14 @@ class Person extends Model
      * @var string
      */
     protected $table = 'people';
+
+    /**
+     * Get all of the vehicles for the Person
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function vehicles()
+    {
+        return $this->hasMany(Vehicle::class, 'user_id', 'id');
+    }
 }

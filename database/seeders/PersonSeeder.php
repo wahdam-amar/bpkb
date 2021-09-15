@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\Person;
+use App\Models\Vehicle;
 use Illuminate\Database\Seeder;
 
 class PersonSeeder extends Seeder
@@ -14,6 +15,6 @@ class PersonSeeder extends Seeder
      */
     public function run()
     {
-        Person::factory()->count(100)->create();
+        Person::factory()->count(100)->has(Vehicle::factory())->create();
     }
 }

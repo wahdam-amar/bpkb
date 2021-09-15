@@ -1,6 +1,6 @@
 ### Todo
 
--   [ ] List item
+-   [ ] Make tables and relations
 
 ### Thanks To
 
