@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Vehicle;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class VehicleController extends Controller
 {
@@ -12,9 +14,10 @@ class VehicleController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $app)
     {
-        //
+
+        return view('vehicle.index');
     }
 
     /**
@@ -80,6 +83,10 @@ class VehicleController extends Controller
      */
     public function destroy(Vehicle $vehicle)
     {
-        //
+    }
+
+    public function testFunction(String $name = null)
+    {
+        return $name;
     }
 }

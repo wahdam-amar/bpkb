@@ -8,10 +8,8 @@ use Illuminate\Http\Request;
 
 class Dashboard extends Controller
 {
-    public function main(Indodax $app)
+    public function main()
     {
-        debug($app->tradehistory());
-
-        return view('asset');
+        return view('dashboard');
     }
 }

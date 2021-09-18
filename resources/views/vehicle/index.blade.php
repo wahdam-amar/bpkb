@@ -9,7 +9,15 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 bg-white border-b border-gray-200">
-                    <livewire:people-table />
+
+                    <table>
+                        <tr>
+                            <th>Tanggal</th>
+                            <th>Dokter 2</th>
+                            <th>Dokter 1</th>
+                        </tr>
+
+                    </table>
                 </div>
             </div>
         </div>
