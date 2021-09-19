@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Dashboard;
+use App\Http\Controllers\PersonController;
 use App\Http\Controllers\TestMenu;
 use App\Http\Controllers\VehicleController;
 use Illuminate\Support\Facades\Route;
@@ -23,6 +24,7 @@ Route::get('/', function () {
 Route::middleware(['auth'])->group(function () {
     Route::get('/dashboard', [Dashboard::class, 'main'])->name('dashboard');
     Route::resource('vehicle', VehicleController::class);
+    Route::resource('person', PersonController::class);
 });
 
 

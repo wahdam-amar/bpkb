@@ -17,6 +17,13 @@ class Vehicle extends Model
     protected $table = 'vehicles';
 
     /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+    protected $fillable = ['id', 'person_id', 'name', 'no', 'brand', 'type', 'jenis', 'made_date', 'effective_date', 'plate', 'engine', 'frame'];
+
+    /**
      * The attributes that aren't mass assignable.
      *
      * @var array
@@ -28,8 +35,8 @@ class Vehicle extends Model
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    public function user()
+    public function person()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(Person::class);
     }
 }

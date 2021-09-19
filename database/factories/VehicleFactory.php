@@ -35,8 +35,7 @@ class VehicleFactory extends Factory
             'effective_date' => $this->faker->dateTimeThisYear(),
             'plate'     => $this->faker->randomNumber(),
             'engine'    => $this->faker->randomNumber(),
-            'frame'     => $this->faker->randomNumber()
-
+            'frame'     => $this->faker->randomNumber(),
         ];
     }
 }

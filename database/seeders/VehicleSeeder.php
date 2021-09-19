@@ -2,11 +2,10 @@
 
 namespace Database\Seeders;
 
-use App\Models\Person;
 use App\Models\Vehicle;
 use Illuminate\Database\Seeder;
 
-class PersonSeeder extends Seeder
+class VehicleSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -15,8 +14,6 @@ class PersonSeeder extends Seeder
      */
     public function run()
     {
-        Person::factory()
-            ->has(Vehicle::factory()->count(1), 'vehicles')
-            ->count(100)->create();
+        Vehicle::factory()->count(100)->create();
     }
 }

@@ -21,7 +21,7 @@ class Person extends Model
      *
      * @var string
      */
-    protected $table = 'people';
+    protected $table = 'person';
 
     /**
      * Get all of the vehicles for the Person
@@ -30,6 +30,6 @@ class Person extends Model
      */
     public function vehicles()
     {
-        return $this->hasMany(Vehicle::class, 'user_id', 'id');
+        return $this->hasMany(Vehicle::class);
     }
 }
