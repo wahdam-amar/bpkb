@@ -14,7 +14,7 @@ class CreateVehiclesTable extends Migration
      */
     public function up()
     {
-        Schema::create('vehicles', function (Blueprint $table) {
+        Schema::create('vehicle', function (Blueprint $table) {
             $table->id();
             $table->foreignId('person_id')->references('id')->on('person');
             $table->string('name');
@@ -38,6 +38,6 @@ class CreateVehiclesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('vehicles');
+        Schema::dropIfExists('vehicle');
     }
 }

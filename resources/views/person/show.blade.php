@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Dashboard') }}
+            {{ $person->name }}
         </h2>
     </x-slot>
 
@@ -40,7 +40,7 @@
                                                         class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
                                                 </div>
 
-                                                <div class="col-span-6 sm:col-span-4">
+                                                <div class="col-span-6 sm:col-span-3">
                                                     <label for="email"
                                                         class="block text-sm font-medium text-gray-700">Email
                                                         address</label>
@@ -87,7 +87,8 @@
                                                 <div class="col-span-6 sm:col-span-3 lg:col-span-2">
                                                     <label for="birthdate"
                                                         class="block text-sm font-medium text-gray-700">Birthdate</label>
-                                                    <input type="text" name="birthdate" value="{{ $person->birthdate }}"
+                                                    <input type="date" id="filter-date" name="birthdate"
+                                                        value="{{ $person->birthdate }}"
                                                         class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
                                                 </div>
                                             </div>

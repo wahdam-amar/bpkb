@@ -25,23 +25,24 @@ class VehicleTable extends DataTableComponent
     public function columns(): array
     {
         return [
-            Column::make('Name')
+            Column::make('Brand')
                 ->sortable()
                 ->searchable(),
-            Column::make('Job')
+            Column::make('Plate')
                 ->sortable()
                 ->searchable(),
-            Column::make('Verified', 'birthdate')
-                ->sortable(),
+            Column::make('Due Date', 'effective_date')
+                ->sortable()
+                ->searchable(),
             Column::make('Action', 'id')
                 ->format(function ($value, $column, $row) {
-                    return '<a href="' . $value . '">Edit</a>';
+                    return '<a href="' . route('vehicle.edit', $value) . '">Edit</a>';
                 })->asHtml(),
         ];
     }
 
     public function query(): Builder
     {
-        return Vehicle::query();
+        return Vehicle::query()->latest();
     }
 }

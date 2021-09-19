@@ -17,6 +17,17 @@ class PeopleTable extends DataTableComponent
         'exportSelected' => 'Export',
     ];
 
+    public function filters(): array
+    {
+        return [
+            'date' => Filter::make('Date')
+                ->date([
+                    // 'min' => now()->subYear()->format('Y-m-d'), // Optional
+                    // 'max' => now()->format('Y-m-d') // Optional
+                ])
+        ];
+    }
+
     public function exportSelected()
     {
         // Do something with the selected rows.
@@ -35,13 +46,14 @@ class PeopleTable extends DataTableComponent
                 ->sortable(),
             Column::make('Action', 'id')
                 ->format(function ($value, $column, $row) {
-                    return '<a href="' . $value . '">Edit</a>';
+                    return '<a href="' . route('person.show', $value) . '">Detail</a>';
                 })->asHtml(),
         ];
     }
 
     public function query(): Builder
     {
-        return Person::query()->latest();
+        return Person::query()->latest()
+            ->when($this->getFilter('date'), fn ($query, $date) => $query->whereDate('birthdate', $date));
     }
 }

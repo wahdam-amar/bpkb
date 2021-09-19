@@ -14,7 +14,7 @@ class Vehicle extends Model
      *
      * @var string
      */
-    protected $table = 'vehicles';
+    protected $table = 'vehicle';
 
     /**
      * The attributes that are mass assignable.
