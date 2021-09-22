@@ -5,6 +5,7 @@ namespace App\Console\Commands;
 use App\Models\Vehicle;
 use Carbon\Carbon;
 use Illuminate\Console\Command;
+use App\Services\TwelioService;
 
 class VehicleDueDate extends Command
 {
@@ -41,6 +42,8 @@ class VehicleDueDate extends Command
     {
         $date = !is_null($this->argument('date')) ? Carbon::parse($this->argument('date')) : null;
 
+        $app = new TwelioService();
+
         $this->info('Execute command with date ' . $date);
 
         $vehicles = Vehicle::query()
@@ -48,7 +51,9 @@ class VehicleDueDate extends Command
                 return $query->whereDate('effective_date', $date);
             })->get();
 
-        //tinggal send disini    
+        foreach ($vehicles as $vehicle) {
+            $app->sendMessage('+6289637058723', $vehicle->name);
+        }
 
         $this->info('done send ' . $vehicles->count() . ' data');
 

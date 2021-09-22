@@ -22,7 +22,9 @@ class DatabaseSeeder extends Seeder
         ]);
 
         if (App::environment('local')) {
-            $this->call(PersonSeeder::class);
+            for ($i = 0; $i < 10; $i++) {
+                $this->call(PersonSeeder::class);
+            }
         }
     }
 }
