@@ -4,7 +4,7 @@ namespace App\View\Components;
 
 use Illuminate\View\Component;
 
-class table-action extends Component
+class tableaction extends Component
 {
     /**
      * Create a new component instance.

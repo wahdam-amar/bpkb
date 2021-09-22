@@ -14,7 +14,8 @@
         "pelmered/fake-car": "^1.6",
         "rappasoft/laravel-livewire-tables": "^1.14",
         "spatie/laravel-menu": "^3.7",
-        "spatie/laravel-permission": "^4.2"
+        "spatie/laravel-permission": "^4.2",
+        "twilio/sdk": "^6.28"
     },
     "require-dev": {
         "barryvdh/laravel-debugbar": "^3.6",
