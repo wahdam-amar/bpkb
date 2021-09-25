@@ -2,6 +2,15 @@
 
 -   [ ] Make tables and relations
 
+### Instalation
+
+```
+    composer install
+    php -r \"file_exists('.env') || copy('.env.example', '.env')
+    php artisan key:generate
+    php artisan migrate:freh --seed
+```
+
 ### Thanks To
 
 -   [Laravel Breze](https://laravel.com/docs/8.x/starter-kits)
