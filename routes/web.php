@@ -25,6 +25,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/dashboard', [Dashboard::class, 'main'])->name('dashboard');
     Route::resource('vehicle', VehicleController::class);
     Route::resource('person', PersonController::class);
+    Route::resource('template', App\Http\Controllers\TemplateController::class);
 });
 
 
