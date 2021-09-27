@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use App\Models\Template;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 
 class TemplateController extends Controller
@@ -16,6 +18,7 @@ class TemplateController extends Controller
     public function index()
     {
         $content = Template::firstOrFail('id', 1);
+
         return view('template.index')->with('content', $content->first());
     }
 
@@ -37,15 +40,12 @@ class TemplateController extends Controller
      */
     public function store(Request $request)
     {
-
-        // dd($request->input('content'));
-
         $content = Template::updateOrCreate(
             ['id' => 1],
             ['content' => $request->input('content')]
-        )->get();
+        )->get()->first();
 
-        return view('template.index')->with('content', $content->first());
+        return view('template.index')->with('content', $content);
     }
 
     /**
