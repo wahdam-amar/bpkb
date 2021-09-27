@@ -4,9 +4,6 @@ namespace App\Services;
 
 use Twilio\Rest\Client;
 
-/**
- * undocumented class
- */
 class TwelioService
 {
     protected $sid_key;
@@ -21,11 +18,10 @@ class TwelioService
     }
 
     /**
-     * undocumented function summary
+     * Send Message
      *
-     * Undocumented function long description
-     *
-     * @param Type $var Description
+     * @param String $to Destination number
+     * @param message $to Message content
      * @return type
      * @throws conditon
      **/
