@@ -11,6 +11,12 @@
     php artisan migrate:freh --seed
 ```
 
+### Run
+
+```
+    php artisan serve
+```    
+
 ### Thanks To
 
 -   [Laravel Breze](https://laravel.com/docs/8.x/starter-kits)
