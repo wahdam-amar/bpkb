@@ -17,7 +17,7 @@ class TemplateController extends Controller
      */
     public function index()
     {
-        $content = Template::firstOrFail('id', 1);
+        $content = Template::where('id', 1);
 
         return view('template.index')->with('content', $content->first());
     }

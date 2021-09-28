@@ -42,6 +42,9 @@
             {{ $slot }}
         </main>
     </div>
+
+    @stack('scripts')
+
     <livewire:scripts />
 </body>
 
