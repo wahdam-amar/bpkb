@@ -57,8 +57,11 @@ class VehicleDueDate extends Command
 
         foreach ($vehicles as $vehicle) {
             $data = [
-                '$name' => $vehicle->name,
-                '$duedate' => $vehicle->effective_date
+                '$name'     => $vehicle->name,
+                '$plate'    => $vehicle->plate,
+                '$duedate'  => $vehicle->effective_date,
+                '$year'     => Carbon::parse($vehicle->effective_date)->year,
+                '$amount'   => $vehicle->amount
             ];
 
             try {
