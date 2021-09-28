@@ -14,7 +14,7 @@ class PeopleTable extends DataTableComponent
     public bool $hideBulkActionsOnEmpty = true;
 
     public array $bulkActions = [
-        'exportSelected' => 'Export',
+        'deleteSelected' => 'Delete',
     ];
 
     public function filters(): array
@@ -28,9 +28,13 @@ class PeopleTable extends DataTableComponent
         ];
     }
 
-    public function exportSelected()
+    public function deleteSelected()
     {
-        // Do something with the selected rows.
+        if ($this->selectedRowsQuery->count() > 0) {
+            $this->selectedRowsQuery->delete();
+        }
+
+        $this->resetAll();
     }
 
     public function columns(): array
