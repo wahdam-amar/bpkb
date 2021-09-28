@@ -2,10 +2,12 @@
 
 namespace App\Console\Commands;
 
-use App\Models\Vehicle;
 use Carbon\Carbon;
-use Illuminate\Console\Command;
+use App\Models\Vehicle;
+use App\Models\Template;
 use App\Services\TwelioService;
+use Illuminate\Console\Command;
+use Twilio\Exceptions\RestException;
 
 class VehicleDueDate extends Command
 {
@@ -42,17 +44,30 @@ class VehicleDueDate extends Command
     {
         $date = !is_null($this->argument('date')) ? Carbon::parse($this->argument('date')) : null;
 
-        $app = new TwelioService();
+        $app = (new TwelioService);
+
+        $textMessage = Template::where('id', 1)->first();
 
         $this->info('Execute command with date ' . $date);
 
-        $vehicles = Vehicle::query()
+        $vehicles = Vehicle::with('person')
             ->when(!is_null($date), function ($query) use ($date) {
                 return $query->whereDate('effective_date', $date);
             })->get();
 
         foreach ($vehicles as $vehicle) {
-            $app->sendMessage('+6289637058723', $vehicle->name);
+            $data = [
+                '$name' => $vehicle->name,
+                '$duedate' => $vehicle->effective_date
+            ];
+
+            try {
+                $app->content($textMessage->content)
+                    ->parseMessage($data)
+                    ->send($vehicle->person->phone);
+            } catch (RestException $th) {
+                $this->info('Invalid ' . $vehicle->person->phone);
+            }
         }
 
         $this->info('done send ' . $vehicles->count() . ' data');
