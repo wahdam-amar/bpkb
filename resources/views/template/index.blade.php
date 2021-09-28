@@ -34,6 +34,9 @@
                     <div class="ml-4 hint-container">
                         <x-hint-button data-value="$name">Name</x-hint-button>
                         <x-hint-button data-value="$duedate">Duedate</x-hint-button>
+                        <x-hint-button data-value="$amount">Amount</x-hint-button>
+                        <x-hint-button data-value="$plate">Plate</x-hint-button>
+                        <x-hint-button data-value="$year">Tahun</x-hint-button>
                     </div>
                 </div>
             </div>
