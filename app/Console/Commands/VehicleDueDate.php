@@ -5,6 +5,7 @@ namespace App\Console\Commands;
 use Carbon\Carbon;
 use App\Models\Vehicle;
 use App\Models\Template;
+use App\Models\VehicleHistory;
 use App\Services\TwelioService;
 use Illuminate\Console\Command;
 use Twilio\Exceptions\RestException;
@@ -68,8 +69,32 @@ class VehicleDueDate extends Command
                 $app->content($textMessage->content)
                     ->parseMessage($data)
                     ->send($vehicle->person->phone);
+
+                VehicleHistory::create([
+                    'vehicle_id'    => $vehicle->id,
+                    'status'        => 'S',
+                    'description'   => 'Success'
+                ]);
             } catch (RestException $th) {
-                $this->info('Invalid ' . $vehicle->person->phone);
+                $errorLog = 'Rest error ' . $vehicle->person->phone;
+
+                VehicleHistory::create([
+                    'vehicle_id'    => $vehicle->id,
+                    'status'        => 'E',
+                    'description'   => $errorLog
+                ]);
+
+                $this->info($errorLog);
+            } catch (\Exception $e) {
+                $errorLog = 'General error ' . $vehicle->person->phone;
+
+                VehicleHistory::create([
+                    'vehicle_id'    => $vehicle->id,
+                    'status'        => 'E',
+                    'description'   => $errorLog
+                ]);
+
+                $this->info($errorLog);
             }
         }
 
