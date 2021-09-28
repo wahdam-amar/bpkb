@@ -29,13 +29,15 @@ class TwelioService
      **/
     public function send(String $to, String $message = null)
     {
-        if ($this->firstWithZero($to)) {
-            $to = '+62' . substr($to, 1);
+        $this->to = str_replace(' ', '', $to);
+
+        if ($this->firstWithZero($this->to)) {
+            $this->to = '+62' . substr($this->to, 1);
         }
 
         $this->client->messages->create(
             // the number you'd like to send the message to
-            'whatsapp:' . $to,
+            'whatsapp:' . $this->to,
             [
                 // A Twilio phone number you purchased at twilio.com/console
                 'from' => 'whatsapp:+14155238886',
