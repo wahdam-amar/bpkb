@@ -3,12 +3,14 @@
 namespace App\Services;
 
 use Twilio\Rest\Client;
+use Illuminate\Support\Str;
 
 class TwelioService
 {
     protected $sid_key;
     protected $token_key;
     protected $client;
+    protected $message;
 
     public function __construct()
     {
@@ -25,8 +27,12 @@ class TwelioService
      * @return type
      * @throws conditon
      **/
-    public function sendMessage(String $to, String $message)
+    public function send(String $to, String $message = null)
     {
+        if ($this->firstWithZero($to)) {
+            $to = '+62' . substr($to, 1);
+        }
+
         $this->client->messages->create(
             // the number you'd like to send the message to
             'whatsapp:' . $to,
@@ -34,8 +40,27 @@ class TwelioService
                 // A Twilio phone number you purchased at twilio.com/console
                 'from' => 'whatsapp:+14155238886',
                 // the body of the text message you'd like to send
-                'body' => $message
+                'body' => $message ?? $this->message,
             ]
         );
+    }
+
+    public function content(String $content)
+    {
+        $this->message = $content;
+        return $this;
+    }
+
+    public function parseMessage(array $rule)
+    {
+        foreach ($rule as $from => $to) {
+            $this->message = Str::replace($from, $to, $this->message);
+        }
+        return $this;
+    }
+
+    public function firstWithZero(String $number)
+    {
+        return Str::startsWith($number, '0');
     }
 }
