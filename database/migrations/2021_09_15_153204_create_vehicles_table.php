@@ -16,7 +16,7 @@ class CreateVehiclesTable extends Migration
     {
         Schema::create('vehicle', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('person_id')->references('id')->on('person');
+            $table->foreignId('person_id')->nullable()->references('id')->on('person')->nullOnDelete();
             $table->string('name');
             $table->string('no');
             $table->string('brand');
