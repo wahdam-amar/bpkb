@@ -10,6 +10,118 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
     <link rel="stylesheet"
         href="https://cdn.jsdelivr.net/gh/creativetimofficial/tailwind-starter-kit/compiled-tailwind.min.css" />
+
+    <style>
+        #live-chat {
+            bottom: 0;
+            font-size: 12px;
+            right: 24px;
+            position: fixed;
+            width: 300px;
+        }
+
+        #live-chat header {
+            background: #293239;
+            border-radius: 5px 5px 0 0;
+            color: #fff;
+            cursor: pointer;
+            padding: 16px 24px;
+        }
+
+        #live-chat h4:before {
+            background: #1a8a34;
+            border-radius: 50%;
+            content: "";
+            display: inline-block;
+            height: 8px;
+            margin: 0 8px 0 0;
+            width: 8px;
+        }
+
+        #live-chat h4 {
+            font-size: 12px;
+        }
+
+        #live-chat h5 {
+            font-size: 10px;
+        }
+
+        #live-chat form {
+            padding: 24px;
+        }
+
+        #live-chat input[type="text"] {
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            padding: 8px;
+            outline: none;
+            width: 234px;
+        }
+
+        .chat-message-counter {
+            background: #e62727;
+            border: 1px solid #fff;
+            border-radius: 50%;
+            display: none;
+            font-size: 12px;
+            font-weight: bold;
+            height: 28px;
+            left: 0;
+            line-height: 28px;
+            margin: -15px 0 0 -15px;
+            position: absolute;
+            text-align: center;
+            top: 0;
+            width: 28px;
+        }
+
+        .chat-close {
+            background: #1b2126;
+            border-radius: 50%;
+            color: #fff;
+            display: block;
+            float: right;
+            font-size: 10px;
+            height: 16px;
+            line-height: 16px;
+            margin: 2px 0 0 0;
+            text-align: center;
+            width: 16px;
+        }
+
+        .chat {
+            background: #fff;
+        }
+
+        .chat-history {
+            height: 252px;
+            padding: 8px 24px;
+            /* overflow-y: scroll; */
+        }
+
+        .chat-message {
+            margin: 16px 0;
+        }
+
+        .chat-message img {
+            border-radius: 50%;
+            float: left;
+        }
+
+        .chat-message-content {
+            margin-left: 56px;
+        }
+
+        .chat-time {
+            float: right;
+            font-size: 10px;
+        }
+
+        .chat-feedback {
+            font-style: italic;
+            margin: 0 0 0 80px;
+        }
+    </style>
     <title>Welcome</title>
 </head>
 
@@ -18,8 +130,8 @@
         <div class="container px-4 mx-auto flex flex-wrap items-center justify-between">
             <div class="w-full relative flex justify-between lg:w-auto lg:static lg:block lg:justify-start">
                 <a class="text-sm font-bold leading-relaxed inline-block mr-4 py-2 whitespace-nowrap uppercase text-white"
-                    href="https://www.creative-tim.com/learning-lab/tailwind-starter-kit#/presentation">Welcome
-                    Kit</a><button
+                    href="https://www.creative-tim.com/learning-lab/tailwind-starter-kit#/presentation">Welcome</a>
+                <button
                     class="cursor-pointer text-xl leading-none px-3 py-1 border border-solid border-transparent rounded bg-transparent block lg:hidden outline-none focus:outline-none"
                     type="button" onclick="toggleNavbar('example-collapse-navbar')">
                     <i class="text-white fas fa-bars"></i>
@@ -28,12 +140,12 @@
             <div class="lg:flex flex-grow items-center bg-white lg:bg-transparent lg:shadow-none hidden"
                 id="example-collapse-navbar">
                 <ul class="flex flex-col lg:flex-row list-none lg:ml-auto">
-                    <li class="flex items-center">
-                        <button
+                    <li class="flex items-center sm:bg-gray-100">
+                        <a href="{{ route('login') }}"
                             class="bg-white text-gray-800 active:bg-gray-100 text-xs font-bold uppercase px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none lg:mr-1 lg:mb-0 ml-3 mb-3"
-                            type="button" style="transition: all 0.15s ease 0s;">
-                            <i class="fas fa-arrow-alt-circle-down"></i> <a href="{{ route('login') }}">Login</a>
-                        </button>
+                            style="transition: all 0.15s ease 0s;">
+                            Login
+                        </a>
                     </li>
                 </ul>
             </div>
@@ -124,12 +236,57 @@
             </div>
         </section>
     </main>
+
+    {{-- Chat:: start --}}
+
+    <div id="live-chat" x-data="{ open: true }">
+
+        <header class="clearfix">
+
+            <a href="#" @click="open = ! open" class="chat-close">x</a>
+
+            <h4>Feedback</h4>
+
+        </header>
+
+        <div x-show="open" x-transition:enter="transition ease-out duration-300"
+            x-transition:enter-start="opacity-0 transform scale-90"
+            x-transition:enter-end="opacity-100 transform scale-100"
+            x-transition:leave="transition ease-in duration-300"
+            x-transition:leave-start="opacity-100 transform scale-100"
+            x-transition:leave-end="opacity-0 transform scale-90" class="chat py-2 px-2">
+
+            <form action="#" method="post">
+
+                <div class="flex flex-wrap mt-4 mb-6 -mx-3">
+                    <div class="w-full">
+                        <label for="name" class="text-base leading-7 text-blueGray-500">Name</label>
+                        <input type="text" id="name" name="name" placeholder="Name"
+                            class="w-full px-4 py-2 mt-2 mr-4 text-base text-black transition duration-500 ease-in-out transform rounded-lg bg-gray-100 focus:border-blueGray-500 focus:bg-white focus:outline-none focus:shadow-outline focus:ring-2 ring-offset-current ring-offset-2">
+
+
+                        <label class="text-base leading-7 text-blueGray-500" for="description">Message</label>
+                        <textarea
+                            class="w-full h-32 px-4 py-2 mt-2 text-base text-blueGray-500 transition duration-500 ease-in-out transform bg-white border rounded-lg focus:border-blue-500 focus:outline-none focus:shadow-outline focus:ring-2 ring-offset-current ring-offset-2 apearance-none autoexpand"
+                            id="description" type="text" name="description" placeholder="Message..."
+                            required=""></textarea>
+                    </div>
+                </div>
+
+            </form>
+
+
+        </div> <!-- end live-chat -->
+
+        <script src="{{ asset('js/app.js') }}" defer></script>
+
+        <script>
+            function toggleNavbar(collapseID) {
+          document.getElementById(collapseID).classList.toggle("hidden");
+          document.getElementById(collapseID).classList.toggle("block");
+        }
+        </script>
+
 </body>
-<script>
-    function toggleNavbar(collapseID) {
-      document.getElementById(collapseID).classList.toggle("hidden");
-      document.getElementById(collapseID).classList.toggle("block");
-    }
-</script>
 
 </html>
