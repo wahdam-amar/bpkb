@@ -18,11 +18,15 @@
                     <x-nav-link :href="route('person.index')" :active="request()->routeIs('person.*')">
                         {{ __('Person') }}
                     </x-nav-link>
-                    <x-nav-link :href="route('vehicle.index')" :active="request()->routeIs('vehicle.*')">
+                    <x-nav-link :href="route('vehicle.index')"
+                        :active="request()->routeIs('vehicle.*') && !request()->routeIs('vehicle.histories')">
                         {{ __('Vehicle') }}
                     </x-nav-link>
                     <x-nav-link :href="route('template.index')" :active="request()->routeIs('template.*')">
                         {{ __('Template') }}
+                    </x-nav-link>
+                    <x-nav-link :href="route('vehicle.histories')" :active="request()->routeIs('vehicle.histories')">
+                        {{ __('Logs') }}
                     </x-nav-link>
                 </div>
             </div>

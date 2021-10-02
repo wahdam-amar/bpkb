@@ -18,7 +18,6 @@ class VehicleController extends Controller
      */
     public function index(Request $app)
     {
-
         return view('vehicle.index');
     }
 
@@ -98,8 +97,8 @@ class VehicleController extends Controller
     {
     }
 
-    public function testFunction(String $name = null)
+    public function histories()
     {
-        return $name;
+        return view('vehicle.histories');
     }
 }
