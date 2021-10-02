@@ -15,4 +15,15 @@ class VehicleHistory extends Model
      * @var array
      */
     protected $fillable = ['vehicle_id', 'status', 'description'];
+
+    public function vehicle()
+    {
+        return $this->belongsTo(Vehicle::class);
+    }
+
+    // Todo : add belongs to through
+    public function person()
+    {
+        # code...
+    }
 }

@@ -27,6 +27,8 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('vehicle', VehicleController::class);
     Route::resource('person', PersonController::class);
     Route::resource('template', TemplateController::class);
+
+    Route::get('logs', [VehicleController::class, 'histories'])->name('vehicle.histories');
 });
 
 
