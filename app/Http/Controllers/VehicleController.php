@@ -7,6 +7,8 @@ use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
+use function Ramsey\Uuid\v1;
+
 class VehicleController extends Controller
 {
     /**
@@ -49,7 +51,7 @@ class VehicleController extends Controller
      */
     public function show(Vehicle $vehicle)
     {
-        //
+        return view('vehicle.show')->with('vehicle', $vehicle);
     }
 
     /**
@@ -60,7 +62,7 @@ class VehicleController extends Controller
      */
     public function edit(Vehicle $vehicle)
     {
-        //
+        return view('vehicle.show')->with('vehicle', $vehicle);
     }
 
     /**
@@ -72,7 +74,18 @@ class VehicleController extends Controller
      */
     public function update(Request $request, Vehicle $vehicle)
     {
-        //
+        $validated = $request->validate([
+            'engine' => ['required', 'max:255'],
+            'plate' => ['required', 'alpha_dash'],
+        ]);
+
+        if (!$validated) {
+            return back()->withErrors($validated);
+        }
+
+        $vehicle->update($request->all());
+
+        return back();
     }
 
     /**
