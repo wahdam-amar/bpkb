@@ -254,23 +254,25 @@
             x-transition:enter-end="opacity-100 transform scale-100"
             x-transition:leave="transition ease-in duration-300"
             x-transition:leave-start="opacity-100 transform scale-100"
-            x-transition:leave-end="opacity-0 transform scale-90" class="chat py-2 px-2">
+            x-transition:leave-end="opacity-0 transform scale-90" class="chat">
 
-            <form action="#" method="post">
+            <form action="{{ route('feedback.store') }}" method="post" class="py-1 px-1">
+                @csrf
+                @method('POST')
 
-                <div class="flex flex-wrap mt-4 mb-6 -mx-3">
+                <div class="flex flex-wrap mt-0 mb-2 -mx-3">
                     <div class="w-full">
                         <label for="name" class="text-base leading-7 text-blueGray-500">Name</label>
-                        <input type="text" id="name" name="name" placeholder="Name"
+                        <input type="text" id="name" name="name" placeholder="Name" required
                             class="w-full px-4 py-2 mt-2 mr-4 text-base text-black transition duration-500 ease-in-out transform rounded-lg bg-gray-100 focus:border-blueGray-500 focus:bg-white focus:outline-none focus:shadow-outline focus:ring-2 ring-offset-current ring-offset-2">
 
 
-                        <label class="text-base leading-7 text-blueGray-500" for="description">Message</label>
+                        <label class="text-base leading-7 text-blueGray-500" for="content">Message</label>
                         <textarea
                             class="w-full h-32 px-4 py-2 mt-2 text-base text-blueGray-500 transition duration-500 ease-in-out transform bg-white border rounded-lg focus:border-blue-500 focus:outline-none focus:shadow-outline focus:ring-2 ring-offset-current ring-offset-2 apearance-none autoexpand"
-                            id="description" type="text" name="description" placeholder="Message..."
-                            required=""></textarea>
+                            id="description" type="text" name="content" placeholder="Message..." required></textarea>
                     </div>
+                    <x-button type="submit">Submit</x-button>
                 </div>
 
             </form>
