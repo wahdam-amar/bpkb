@@ -1,11 +1,12 @@
 <?php
 
-use App\Http\Controllers\Dashboard;
-use App\Http\Controllers\PersonController;
-use App\Http\Controllers\TemplateController;
 use App\Http\Controllers\TestMenu;
-use App\Http\Controllers\VehicleController;
+use App\Http\Controllers\Dashboard;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PersonController;
+use App\Http\Controllers\VehicleController;
+use App\Http\Controllers\FeedbackController;
+use App\Http\Controllers\TemplateController;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,6 +30,10 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('template', TemplateController::class);
 
     Route::get('logs', [VehicleController::class, 'histories'])->name('vehicle.histories');
+});
+
+Route::middleware(['web'])->group(function () {
+    Route::resource('feedback', FeedbackController::class);
 });
 
 
