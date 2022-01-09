@@ -3,11 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Vehicle;
-use Carbon\Carbon;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
-
-use function Ramsey\Uuid\v1;
 
 class VehicleController extends Controller
 {
@@ -78,7 +74,7 @@ class VehicleController extends Controller
             'plate' => ['required', 'alpha_dash'],
         ]);
 
-        if (!$validated) {
+        if (! $validated) {
             return back()->withErrors($validated);
         }
 
