@@ -35,7 +35,7 @@ class FeedbackController extends Controller
      */
     public function store(Request $request)
     {
-        if (!$request->filled('name') || !$request->filled('content')) {
+        if (! $request->filled('name') || ! $request->filled('content')) {
             return back();
         }
 

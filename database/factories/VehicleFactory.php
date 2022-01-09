@@ -21,7 +21,6 @@ class VehicleFactory extends Factory
      */
     public function definition()
     {
-
         $faker = (new \Faker\Factory())::create();
         $faker->addProvider(new \Faker\Provider\Fakecar($faker));
 
