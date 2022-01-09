@@ -36,6 +36,7 @@ class VehicleFactory extends Factory
             'plate'     => $this->faker->randomNumber(),
             'engine'    => $this->faker->randomNumber(),
             'frame'     => $this->faker->randomNumber(),
+            'amount'    => $this->faker->randomNumber(),
         ];
     }
 }
