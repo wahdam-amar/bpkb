@@ -9,6 +9,21 @@ module.exports = {
 
     theme: {
         extend: {
+            colors: {
+                'cyan': {
+                    DEFAULT: '#35858B',
+                    '50': '#9ED6DA',
+                    '100': '#8FCFD4',
+                    '200': '#71C3C9',
+                    '300': '#54B6BE',
+                    '400': '#40A1A9',
+                    '500': '#35858B',
+                    '600': '#265E62',
+                    '700': '#16373A',
+                    '800': '#071011',
+                    '900': '#000000'
+                  },
+            },
             fontFamily: {
                 sans: ['Nunito', ...defaultTheme.fontFamily.sans],
             },
@@ -27,5 +42,7 @@ module.exports = {
         },
     },
 
-    plugins: [require('@tailwindcss/forms')],
+    plugins: [
+        require('@tailwindcss/forms'),
+    ],
 };

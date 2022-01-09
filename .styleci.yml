@@ -1,7 +1,21 @@
-php:
-  preset: laravel
-  disabled:
-    - no_unused_imports
-  finder:
-    not-name:
-      - "*.blade.php"
+preset: laravel
+
+disabled:
+  - trailing_comma_in_multiline_array
+
+finder:
+  exclude:
+    - "modules"
+    - "node_modules"
+    - "nova"
+    - "nova-components"
+    - "storage"
+    - "spark"
+    - "vendor"
+    - "tests"
+  name: "*.php"
+  not-name:
+    - "*.blade.php"
+    - "server.php"
+    - "_ide_helper.php"
+    - "_ide_helper_models.php"
