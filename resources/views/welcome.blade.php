@@ -153,8 +153,8 @@
     </nav>
     <main>
         <div class="relative pt-16 pb-32 flex content-center items-center justify-center" style="min-height: 75vh;">
-            <div class="absolute top-0 w-full h-full bg-center bg-cover"
-                style='background-image: url("{{ asset('images/home.svg') }}");'>
+            <div class="absolute top-0 w-full h-full bg-center bg-cover" style='background-image: url("{{ asset('
+                images/home.svg') }}");'>
                 <span id="blackOverlay" class="w-full h-full absolute opacity-75 bg-black"></span>
             </div>
             <div class="container relative mx-auto">
@@ -239,11 +239,11 @@
 
     {{-- Chat:: start --}}
 
-    <div id="live-chat" x-data="{ open: true }">
+    <div id="live-chat" x-data="{ open: false }">
 
-        <header class="clearfix">
+        <header @click="open = ! open" class="clearfix">
 
-            <a href="#" @click="open = ! open" class="chat-close">x</a>
+            <a href="#" class="chat-close">x</a>
 
             <h4>Feedback</h4>
 
