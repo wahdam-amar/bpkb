@@ -21,7 +21,7 @@ use App\Http\Controllers\TemplateController;
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('homepage');
 
 Route::middleware(['auth'])->group(function () {
     Route::get('/dashboard', [Dashboard::class, 'main'])->name('dashboard');
