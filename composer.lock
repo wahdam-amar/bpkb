@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "9ae2e93baed8e14e514df45db674aa86",
+    "content-hash": "e84770170292f5f2b63fc99ea8663fc4",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -5990,6 +5990,46 @@
                 }
             ],
             "time": "2020-11-12T00:07:28+00:00"
+        },
+        {
+            "name": "wahdam/livewire-modal",
+            "version": "0.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/wahdam-amar/livewire-modal.git",
+                "reference": "0f5c4083e83f57508e9692a377feec03338af79e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/wahdam-amar/livewire-modal/zipball/0f5c4083e83f57508e9692a377feec03338af79e",
+                "reference": "0f5c4083e83f57508e9692a377feec03338af79e",
+                "shasum": ""
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Wahdam\\LivewireModal\\LivewireModalServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Wahdam\\LivewireModal\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "authors": [
+                {
+                    "name": "wahdam",
+                    "email": "wahdam.amarulloh@gmail.com"
+                }
+            ],
+            "support": {
+                "issues": "https://github.com/wahdam-amar/livewire-modal/issues",
+                "source": "https://github.com/wahdam-amar/livewire-modal/tree/0.0.1"
+            },
+            "time": "2022-01-14T12:26:54+00:00"
         },
         {
             "name": "webmozart/assert",
