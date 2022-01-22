@@ -2,11 +2,11 @@
 
 namespace App\Console\Commands;
 
-use Carbon\Carbon;
-use App\Models\Vehicle;
 use App\Models\Template;
+use App\Models\Vehicle;
 use App\Models\VehicleHistory;
 use App\Services\TwelioService;
+use Carbon\Carbon;
 use Illuminate\Console\Command;
 use Twilio\Exceptions\RestException;
 
@@ -43,16 +43,16 @@ class VehicleDueDate extends Command
      */
     public function handle()
     {
-        $date = !is_null($this->argument('date')) ? Carbon::parse($this->argument('date')) : null;
+        $date = ! is_null($this->argument('date')) ? Carbon::parse($this->argument('date')) : null;
 
         $app = (new TwelioService);
 
         $textMessage = Template::where('id', 1)->first();
 
-        $this->info('Execute command with date ' . $date);
+        $this->info('Execute command with date '.$date);
 
         $vehicles = Vehicle::with('person')
-            ->when(!is_null($date), function ($query) use ($date) {
+            ->when(! is_null($date), function ($query) use ($date) {
                 return $query->whereDate('effective_date', $date);
             })->get();
 
@@ -76,7 +76,7 @@ class VehicleDueDate extends Command
                     'description'   => 'Success'
                 ]);
             } catch (RestException $th) {
-                $errorLog = 'Rest error ' . $vehicle->person->phone;
+                $errorLog = 'Rest error '.$vehicle->person->phone;
 
                 VehicleHistory::create([
                     'vehicle_id'    => $vehicle->id,
@@ -86,7 +86,7 @@ class VehicleDueDate extends Command
 
                 $this->info($errorLog);
             } catch (\Exception $e) {
-                $errorLog = 'General error ' . $vehicle->person->phone;
+                $errorLog = 'General error '.$vehicle->person->phone;
 
                 VehicleHistory::create([
                     'vehicle_id'    => $vehicle->id,
@@ -98,7 +98,7 @@ class VehicleDueDate extends Command
             }
         }
 
-        $this->info('done send ' . $vehicles->count() . ' data');
+        $this->info('done send '.$vehicles->count().' data');
 
         return 0;
     }
