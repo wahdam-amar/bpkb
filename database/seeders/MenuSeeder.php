@@ -19,7 +19,7 @@ class MenuSeeder extends Seeder
         foreach ($menus as $menu) {
             Menu::create([
                 'name' => $menu,
-                'status' => 'AC'
+                'status' => 'AC',
             ]);
         }
     }

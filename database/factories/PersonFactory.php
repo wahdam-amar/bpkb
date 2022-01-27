@@ -26,7 +26,7 @@ class PersonFactory extends Factory
             'job' => $this->faker->jobTitle,
             'birthdate' => $this->faker->dateTimeThisCentury,
             'birthplace' => $this->faker->address,
-            'gender' =>  $this->faker->randomElement(['male', 'female']),
+            'gender' => $this->faker->randomElement(['male', 'female']),
             'address' => $this->faker->address,
             'phone' => $this->faker->phoneNumber,
             'email' => $this->faker->safeEmail,
