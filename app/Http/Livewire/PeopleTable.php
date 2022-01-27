@@ -24,7 +24,7 @@ class PeopleTable extends DataTableComponent
                 ->date([
                     // 'min' => now()->subYear()->format('Y-m-d'), // Optional
                     // 'max' => now()->format('Y-m-d') // Optional
-                ])
+                ]),
         ];
     }
 
@@ -50,7 +50,7 @@ class PeopleTable extends DataTableComponent
                 ->sortable(),
             Column::make('Action', 'id')
                 ->format(function ($value, $column, $row) {
-                    return '<a href="' . route('person.show', $value) . '">Detail</a>';
+                    return '<a href="'.route('person.show', $value).'">Detail</a>';
                 })->asHtml(),
         ];
     }
