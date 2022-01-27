@@ -1,12 +1,11 @@
 <?php
 
-use App\Http\Controllers\TestMenu;
 use App\Http\Controllers\Dashboard;
-use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\PersonController;
-use App\Http\Controllers\VehicleController;
 use App\Http\Controllers\FeedbackController;
+use App\Http\Controllers\PersonController;
 use App\Http\Controllers\TemplateController;
+use App\Http\Controllers\VehicleController;
+use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
@@ -36,6 +35,4 @@ Route::middleware(['web'])->group(function () {
     Route::resource('feedback', FeedbackController::class);
 });
 
-
-
-require __DIR__ . '/auth.php';
+require __DIR__.'/auth.php';

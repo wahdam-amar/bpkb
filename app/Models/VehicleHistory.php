@@ -24,6 +24,6 @@ class VehicleHistory extends Model
     // Todo : add belongs to through
     public function person()
     {
-        # code...
+        // code...
     }
 }

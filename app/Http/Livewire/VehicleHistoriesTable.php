@@ -63,6 +63,5 @@ class VehicleHistoriesTable extends DataTableComponent
     {
         return VehicleHistory::with('vehicle')->latest()
             ->when($this->getFilter('date'), fn ($query, $date) => $query->whereDate('created_at', $date));
-        ;
     }
 }

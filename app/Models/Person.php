@@ -24,7 +24,7 @@ class Person extends Model
     protected $table = 'person';
 
     /**
-     * Get all of the vehicles for the Person
+     * Get all of the vehicles for the Person.
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */

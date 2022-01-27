@@ -20,24 +20,25 @@ class TwelioService
     }
 
     /**
-     * Send Message
+     * Send Message.
      *
-     * @param String $to Destination number
-     * @param message $to Message content
+     * @param  string  $to  Destination number
+     * @param  message  $to  Message content
      * @return type
+     *
      * @throws conditon
      **/
-    public function send(String $to, String $message = null)
+    public function send(string $to, string $message = null)
     {
         $this->to = str_replace(' ', '', $to);
 
         if ($this->firstWithZero($this->to)) {
-            $this->to = '+62' . substr($this->to, 1);
+            $this->to = '+62'.substr($this->to, 1);
         }
 
         $this->client->messages->create(
             // the number you'd like to send the message to
-            'whatsapp:' . $this->to,
+            'whatsapp:'.$this->to,
             [
                 // A Twilio phone number you purchased at twilio.com/console
                 'from' => 'whatsapp:+14155238886',
@@ -47,7 +48,7 @@ class TwelioService
         );
     }
 
-    public function content(String $content)
+    public function content(string $content)
     {
         $this->message = $content;
 
@@ -63,7 +64,7 @@ class TwelioService
         return $this;
     }
 
-    public function firstWithZero(String $number)
+    public function firstWithZero(string $number)
     {
         return Str::startsWith($number, '0');
     }

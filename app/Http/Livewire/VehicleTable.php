@@ -51,7 +51,7 @@ class VehicleTable extends DataTableComponent
                 ->searchable(),
             Column::make('Action', 'id')
                 ->format(function ($value, $column, $row) {
-                    return '<a href="' . route('vehicle.show', $value) . '">Edit</a>';
+                    return '<a href="'.route('vehicle.show', $value).'">Edit</a>';
                 })->asHtml(),
         ];
     }
@@ -60,6 +60,5 @@ class VehicleTable extends DataTableComponent
     {
         return Vehicle::query()->latest()
             ->when($this->getFilter('date'), fn ($query, $date) => $query->whereDate('effective_date', $date));
-        ;
     }
 }
