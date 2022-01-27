@@ -49,7 +49,7 @@ class VehicleDueDate extends Command
 
         $textMessage = Template::where('id', 1)->first();
 
-        $this->info('Execute command with date ' . $date);
+        $this->info('Execute command with date '.$date);
 
         $vehicles = Vehicle::with('person')
             ->when(! is_null($date), function ($query) use ($date) {
@@ -76,7 +76,7 @@ class VehicleDueDate extends Command
                     'description' => 'Success',
                 ]);
             } catch (RestException $th) {
-                $errorLog = 'Rest error ' . $vehicle->person->phone;
+                $errorLog = 'Rest error '.$vehicle->person->phone;
 
                 VehicleHistory::create([
                     'vehicle_id' => $vehicle->id,
@@ -86,7 +86,7 @@ class VehicleDueDate extends Command
 
                 $this->info($errorLog);
             } catch (\Exception $e) {
-                $errorLog = 'General error ' . $vehicle->person->phone;
+                $errorLog = 'General error '.$vehicle->person->phone;
 
                 VehicleHistory::create([
                     'vehicle_id' => $vehicle->id,
@@ -98,7 +98,7 @@ class VehicleDueDate extends Command
             }
         }
 
-        $this->info('done send ' . $vehicles->count() . ' data');
+        $this->info('done send '.$vehicles->count().' data');
 
         return 0;
     }
