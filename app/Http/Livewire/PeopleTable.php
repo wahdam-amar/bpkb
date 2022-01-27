@@ -50,7 +50,7 @@ class PeopleTable extends DataTableComponent
                 ->sortable(),
             Column::make('Action', 'id')
                 ->format(function ($value, $column, $row) {
-                    return '<a href="' . route('person.show', $value) . '">Detail</a>';
+                    return '<a href="'.route('person.show', $value).'">Detail</a>';
                 })->asHtml(),
         ];
     }
