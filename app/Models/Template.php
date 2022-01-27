@@ -16,6 +16,6 @@ class Template extends Model
      */
     protected $fillable = [
         'id',
-        'content'
+        'content',
     ];
 }
