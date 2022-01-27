@@ -4,13 +4,12 @@ namespace App\Http\Livewire;
 
 use App\Models\VehicleHistory;
 use Illuminate\Database\Eloquent\Builder;
+use Rappasoft\LaravelLivewireTables\DataTableComponent;
 use Rappasoft\LaravelLivewireTables\Views\Column;
 use Rappasoft\LaravelLivewireTables\Views\Filter;
-use Rappasoft\LaravelLivewireTables\DataTableComponent;
 
 class VehicleHistoriesTable extends DataTableComponent
 {
-
     public bool $columnSelect = true;
     public bool $hideBulkActionsOnEmpty = true;
 
@@ -34,7 +33,7 @@ class VehicleHistoriesTable extends DataTableComponent
                 ->date([
                     // 'min' => now()->subYear()->format('Y-m-d'), // Optional
                     // 'max' => now()->format('Y-m-d') // Optional
-                ])
+                ]),
         ];
     }
 
@@ -63,6 +62,7 @@ class VehicleHistoriesTable extends DataTableComponent
     public function query(): Builder
     {
         return VehicleHistory::with('vehicle')->latest()
-            ->when($this->getFilter('date'), fn ($query, $date) => $query->whereDate('created_at', $date));;
+            ->when($this->getFilter('date'), fn ($query, $date) => $query->whereDate('created_at', $date));
+        ;
     }
 }

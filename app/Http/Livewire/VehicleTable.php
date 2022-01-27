@@ -4,13 +4,12 @@ namespace App\Http\Livewire;
 
 use App\Models\Vehicle;
 use Illuminate\Database\Eloquent\Builder;
+use Rappasoft\LaravelLivewireTables\DataTableComponent;
 use Rappasoft\LaravelLivewireTables\Views\Column;
 use Rappasoft\LaravelLivewireTables\Views\Filter;
-use Rappasoft\LaravelLivewireTables\DataTableComponent;
 
 class VehicleTable extends DataTableComponent
 {
-
     public bool $columnSelect = true;
     public bool $hideBulkActionsOnEmpty = true;
 
@@ -34,7 +33,7 @@ class VehicleTable extends DataTableComponent
                 ->date([
                     // 'min' => now()->subYear()->format('Y-m-d'), // Optional
                     // 'max' => now()->format('Y-m-d') // Optional
-                ])
+                ]),
         ];
     }
 
@@ -60,6 +59,7 @@ class VehicleTable extends DataTableComponent
     public function query(): Builder
     {
         return Vehicle::query()->latest()
-            ->when($this->getFilter('date'), fn ($query, $date) => $query->whereDate('effective_date', $date));;
+            ->when($this->getFilter('date'), fn ($query, $date) => $query->whereDate('effective_date', $date));
+        ;
     }
 }

@@ -2,8 +2,8 @@
 
 namespace App\Services;
 
-use Twilio\Rest\Client;
 use Illuminate\Support\Str;
+use Twilio\Rest\Client;
 
 class TwelioService
 {
@@ -50,6 +50,7 @@ class TwelioService
     public function content(String $content)
     {
         $this->message = $content;
+
         return $this;
     }
 
@@ -58,6 +59,7 @@ class TwelioService
         foreach ($rule as $from => $to) {
             $this->message = Str::replace($from, $to, $this->message);
         }
+
         return $this;
     }
 
