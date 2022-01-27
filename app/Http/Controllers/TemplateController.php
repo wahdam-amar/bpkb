@@ -37,6 +37,13 @@ class TemplateController extends Controller
      */
     public function store(Request $request)
     {
+
+        // validate request
+        $request->validate([
+            'content' => ['required'],
+        ]);
+
+
         $content = Template::updateOrCreate(
             ['id' => 1],
             ['content' => $request->input('content')]

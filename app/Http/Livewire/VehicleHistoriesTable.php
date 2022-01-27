@@ -33,7 +33,7 @@ class VehicleHistoriesTable extends DataTableComponent
                 ->date([
                     // 'min' => now()->subYear()->format('Y-m-d'), // Optional
                     // 'max' => now()->format('Y-m-d') // Optional
-                ])
+                ]),
         ];
     }
 

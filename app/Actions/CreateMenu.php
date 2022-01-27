@@ -11,7 +11,9 @@ class CreateMenu
     public function make()
     {
         $menus = MenuModel::all()->where('status', 'AC');
+
         $mainmenu = Menu::new()->addClass('nav-list');
+
         foreach ($menus as $menu) {
             $mainmenu->add(Link::to('#!', $menu->name));
             if ($menu->hasChild()) {

@@ -45,7 +45,7 @@ class VehicleDueDate extends Command
     {
         $date = ! is_null($this->argument('date')) ? Carbon::parse($this->argument('date')) : null;
 
-        $app = (new TwelioService);
+        $app = (new TwelioService());
 
         $textMessage = Template::where('id', 1)->first();
 
@@ -58,11 +58,11 @@ class VehicleDueDate extends Command
 
         foreach ($vehicles as $vehicle) {
             $data = [
-                '$name'     => $vehicle->name,
-                '$plate'    => $vehicle->plate,
-                '$duedate'  => $vehicle->effective_date,
-                '$year'     => Carbon::parse($vehicle->effective_date)->year,
-                '$amount'   => $vehicle->amount
+                '$name' => $vehicle->name,
+                '$plate' => $vehicle->plate,
+                '$duedate' => $vehicle->effective_date,
+                '$year' => Carbon::parse($vehicle->effective_date)->year,
+                '$amount' => $vehicle->amount,
             ];
 
             try {
@@ -71,17 +71,17 @@ class VehicleDueDate extends Command
                     ->send($vehicle->person->phone);
 
                 VehicleHistory::create([
-                    'vehicle_id'    => $vehicle->id,
-                    'status'        => 'S',
-                    'description'   => 'Success'
+                    'vehicle_id' => $vehicle->id,
+                    'status' => 'S',
+                    'description' => 'Success',
                 ]);
             } catch (RestException $th) {
                 $errorLog = 'Rest error '.$vehicle->person->phone;
 
                 VehicleHistory::create([
-                    'vehicle_id'    => $vehicle->id,
-                    'status'        => 'E',
-                    'description'   => $errorLog
+                    'vehicle_id' => $vehicle->id,
+                    'status' => 'E',
+                    'description' => $errorLog,
                 ]);
 
                 $this->info($errorLog);
@@ -89,9 +89,9 @@ class VehicleDueDate extends Command
                 $errorLog = 'General error '.$vehicle->person->phone;
 
                 VehicleHistory::create([
-                    'vehicle_id'    => $vehicle->id,
-                    'status'        => 'E',
-                    'description'   => $errorLog
+                    'vehicle_id' => $vehicle->id,
+                    'status' => 'E',
+                    'description' => $errorLog,
                 ]);
 
                 $this->info($errorLog);
