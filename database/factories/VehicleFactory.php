@@ -25,17 +25,17 @@ class VehicleFactory extends Factory
         $faker->addProvider(new \Faker\Provider\Fakecar($faker));
 
         return [
-            'name'      => $this->faker->name,
-            'no'        => $this->faker->numberBetween(),
-            'brand'     => $faker->vehicleBrand,
-            'type'      => $faker->vehicleType,
-            'jenis'     => $faker->vehicleModel,
+            'name' => $this->faker->name,
+            'no' => $this->faker->numberBetween(),
+            'brand' => $faker->vehicleBrand,
+            'type' => $faker->vehicleType,
+            'jenis' => $faker->vehicleModel,
             'made_date' => $this->faker->dateTimeThisCentury(),
             'effective_date' => $this->faker->dateTimeThisYear(),
-            'plate'     => $this->faker->randomNumber(),
-            'engine'    => $this->faker->randomNumber(),
-            'frame'     => $this->faker->randomNumber(),
-            'amount'    => $this->faker->randomNumber(),
+            'plate' => $this->faker->randomNumber(),
+            'engine' => $this->faker->randomNumber(),
+            'frame' => $this->faker->randomNumber(),
+            'amount' => $this->faker->randomNumber(),
         ];
     }
 }
