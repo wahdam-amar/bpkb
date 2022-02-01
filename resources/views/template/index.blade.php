@@ -44,7 +44,7 @@
                     @csrf
                     <div class="border rounded-lg p-4 bg-gray-200 my-2">
                         <textarea name="content" value="{{ $content->content ?? '' }}"
-                            class="text-slate-900 font-medium appearance-none textarea h-24 textarea-bordered w-full bg-transparent border-0 border-opacity-0 shadow-none border-transparent focus:border-transparent focus:ring-0">{{ $content->content ?? '' }}</textarea>
+                            class="text-slate-900 resize-none font-medium appearance-none textarea h-24 textarea-bordered w-full bg-transparent border-0 border-opacity-0 shadow-none border-transparent focus:border-transparent focus:ring-0">{{ $content->content ?? '' }}</textarea>
                     </div>
                     <x-button>Save</x-button>
                 </form>

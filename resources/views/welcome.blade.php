@@ -50,14 +50,6 @@
             padding: 24px;
         }
 
-        #live-chat input[type="text"] {
-            border: 1px solid #ccc;
-            border-radius: 3px;
-            padding: 8px;
-            outline: none;
-            width: 234px;
-        }
-
         .chat-message-counter {
             background: #e62727;
             border: 1px solid #fff;
@@ -121,6 +113,12 @@
             font-style: italic;
             margin: 0 0 0 80px;
         }
+
+
+        [x-cloak] {
+            display: none !important;
+        }
+
     </style>
     <title>Welcome</title>
 </head>
@@ -130,7 +128,7 @@
         <div class="container px-4 mx-auto flex flex-wrap items-center justify-between">
             <div class="w-full relative flex justify-between lg:w-auto lg:static lg:block lg:justify-start">
                 <a class="text-sm font-bold leading-relaxed inline-block mr-4 py-2 whitespace-nowrap uppercase text-white"
-                    href="https://www.creative-tim.com/learning-lab/tailwind-starter-kit#/presentation">Welcome</a>
+                    href="/">Welcome</a>
                 <button
                     class="cursor-pointer text-xl leading-none px-3 py-1 border border-solid border-transparent rounded bg-transparent block lg:hidden outline-none focus:outline-none"
                     type="button" onclick="toggleNavbar('example-collapse-navbar')">
@@ -153,8 +151,9 @@
     </nav>
     <main>
         <div class="relative pt-16 pb-32 flex content-center items-center justify-center" style="min-height: 75vh;">
-            <div class="absolute top-0 w-full h-full bg-center bg-cover" style='background-image: url("{{ asset('
-                images/home.svg') }}");'>
+            <div class="absolute top-0 w-full h-full bg-center bg-cover"
+                style='background-image: url("{{ asset('
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                images/home.svg') }}");'>
                 <span id="blackOverlay" class="w-full h-full absolute opacity-75 bg-black"></span>
             </div>
             <div class="container relative mx-auto">
@@ -242,19 +241,10 @@
     <div id="live-chat" x-data="{ open: false }">
 
         <header @click="open = ! open" class="clearfix">
-
-            <a href="#" class="chat-close">x</a>
-
             <h4>Feedback</h4>
-
         </header>
 
-        <div x-show="open" x-transition:enter="transition ease-out duration-300"
-            x-transition:enter-start="opacity-0 transform scale-90"
-            x-transition:enter-end="opacity-100 transform scale-100"
-            x-transition:leave="transition ease-in duration-300"
-            x-transition:leave-start="opacity-100 transform scale-100"
-            x-transition:leave-end="opacity-0 transform scale-90" class="chat">
+        <div x-show="open" x-transition class="chat transition" x-cloak>
 
             <form action="{{ route('feedback.store') }}" method="post" class="py-1 px-1">
                 @csrf
@@ -262,17 +252,16 @@
 
                 <div class="flex flex-wrap mt-0 mb-2 -mx-3">
                     <div class="w-full">
-                        <label for="name" class="text-base leading-7 text-blueGray-500">Name</label>
                         <input type="text" id="name" name="name" placeholder="Name" required
-                            class="w-full px-4 py-2 mt-2 mr-4 text-base text-black transition duration-500 ease-in-out transform rounded-lg bg-gray-100 focus:border-blueGray-500 focus:bg-white focus:outline-none focus:shadow-outline focus:ring-2 ring-offset-current ring-offset-2">
+                            class="w-full bg-gray-100 rounded-none border-none ring-0 outline-none mb-4">
 
-
-                        <label class="text-base leading-7 text-blueGray-500" for="content">Message</label>
                         <textarea
-                            class="w-full h-32 px-4 py-2 mt-2 text-base text-blueGray-500 transition duration-500 ease-in-out transform bg-white border rounded-lg focus:border-blue-500 focus:outline-none focus:shadow-outline focus:ring-2 ring-offset-current ring-offset-2 apearance-none autoexpand"
+                            class="w-full bg-gray-100 rounded-none border-none ring-0 outline-none apearance-none resize-none "
                             id="description" type="text" name="content" placeholder="Message..." required></textarea>
                     </div>
-                    <x-button type="submit">Submit</x-button>
+                    <button
+                        class="px-3 py-1 bg-gray-100 hover:bg-indigo-400 text-sm font-semibold text-slate-800 focus:outline-none focus:ring-3 ring-indigo-400"
+                        type="submit">Submit</button>
                 </div>
 
             </form>
@@ -284,9 +273,9 @@
 
         <script>
             function toggleNavbar(collapseID) {
-          document.getElementById(collapseID).classList.toggle("hidden");
-          document.getElementById(collapseID).classList.toggle("block");
-        }
+                document.getElementById(collapseID).classList.toggle("hidden");
+                document.getElementById(collapseID).classList.toggle("block");
+            }
         </script>
 
 </body>

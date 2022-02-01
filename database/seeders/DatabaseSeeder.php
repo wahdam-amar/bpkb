@@ -19,12 +19,11 @@ class DatabaseSeeder extends Seeder
         $this->call([
             AdminSeeder::class,
             MenuSeeder::class,
+            StopWordSeeder::class,
         ]);
 
         if (App::environment('local')) {
-            for ($i = 0; $i < 10; $i++) {
-                $this->call(PersonSeeder::class);
-            }
+            $this->call(PersonSeeder::class);
         }
     }
 }
