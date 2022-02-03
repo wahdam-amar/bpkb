@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "e84770170292f5f2b63fc99ea8663fc4",
+    "content-hash": "ac0be89513ec06d03ec71e62ea7a03d8",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -6088,6 +6088,59 @@
                 "source": "https://github.com/webmozarts/assert/tree/1.10.0"
             },
             "time": "2021-03-09T10:59:23+00:00"
+        },
+        {
+            "name": "wfphpnlp/naivebayesclassifier",
+            "version": "1.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/WillyFaq/Naive-Bayes-Classifier.git",
+                "reference": "755f08dccb97ed1f626b679043fe67301c0319e5"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/WillyFaq/Naive-Bayes-Classifier/zipball/755f08dccb97ed1f626b679043fe67301c0319e5",
+                "reference": "755f08dccb97ed1f626b679043fe67301c0319e5",
+                "shasum": ""
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^5.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "wfphpnlp\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "WillyFaq",
+                    "email": "willyfaqurokhim@gmail.com"
+                }
+            ],
+            "description": "PHP library for Indonesian text classification using the Naive Bayes Classifier (NBC) approach.",
+            "keywords": [
+                "Naive Bayes Classifier",
+                "NaiveBayesClassifier",
+                "bahasa indonesia",
+                "klasifikasi naive bayes",
+                "klasifikasi teks",
+                "naive bayes",
+                "naivebayes",
+                "php Naive Bayes Classifier",
+                "php NaiveBayes",
+                "php NaiveBayesClassifier",
+                "php naive bayes"
+            ],
+            "support": {
+                "issues": "https://github.com/WillyFaq/Naive-Bayes-Classifier/issues",
+                "source": "https://github.com/WillyFaq/Naive-Bayes-Classifier/tree/1.2.0"
+            },
+            "time": "2020-07-08T14:08:30+00:00"
         }
     ],
     "packages-dev": [

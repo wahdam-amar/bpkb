@@ -20,6 +20,7 @@ class DatabaseSeeder extends Seeder
             AdminSeeder::class,
             MenuSeeder::class,
             StopWordSeeder::class,
+            ResponsesSeeder::class,
         ]);
 
         if (App::environment('local')) {

@@ -17,6 +17,6 @@ class PersonSeeder extends Seeder
     {
         Person::factory()
             ->has(Vehicle::factory()->count(1), 'vehicles')
-            ->count(10000)->create();
+            ->count(1000)->create();
     }
 }

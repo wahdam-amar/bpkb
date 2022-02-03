@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Feedback;
+use App\Services\NaiveBayesServices;
 use Illuminate\Http\Request;
 
 class FeedbackController extends Controller
@@ -39,7 +40,13 @@ class FeedbackController extends Controller
             return back();
         }
 
-        Feedback::create($request->all());
+        $train = new NaiveBayesServices();
+
+        $sentiment = $train->predict($request->content);
+
+        $feedback = Feedback::create($request->all());
+        $feedback->sentiment = $sentiment;
+        $feedback->save();
 
         return back();
     }

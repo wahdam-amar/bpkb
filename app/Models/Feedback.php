@@ -14,5 +14,5 @@ class Feedback extends Model
      *
      * @var array
      */
-    protected $fillable = ['name', 'content'];
+    protected $fillable = ['name', 'content','sentiment'];
 }

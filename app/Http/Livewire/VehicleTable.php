@@ -56,6 +56,8 @@ class VehicleTable extends DataTableComponent
         ];
     }
 
+    // Todo add person name who has vehicle
+
     public function query(): Builder
     {
         return Vehicle::query()->latest()

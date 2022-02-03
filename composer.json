@@ -19,7 +19,8 @@
         "spatie/laravel-menu": "^3.7",
         "spatie/laravel-permission": "^4.2",
         "twilio/sdk": "^6.28",
-        "wahdam/livewire-modal": "^0.0.1"
+        "wahdam/livewire-modal": "^0.0.1",
+        "wfphpnlp/naivebayesclassifier": "^1.2"
     },
     "require-dev": {
         "barryvdh/laravel-debugbar": "^3.6",
