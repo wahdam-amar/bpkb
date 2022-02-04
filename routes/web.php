@@ -29,10 +29,11 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('template', TemplateController::class);
 
     Route::get('logs', [VehicleController::class, 'histories'])->name('vehicle.histories');
+    Route::get('/feedback', [FeedbackController::class, 'index'])->name('feedback.index');
 });
 
 Route::middleware(['web'])->group(function () {
-    Route::resource('feedback', FeedbackController::class);
+    Route::post('/feedback', [FeedbackController::class,'store'])->name('feedback.store');
 });
 
 require __DIR__.'/auth.php';

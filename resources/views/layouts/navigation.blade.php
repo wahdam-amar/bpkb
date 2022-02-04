@@ -28,6 +28,9 @@
                     <x-nav-link :href="route('vehicle.histories')" :active="request()->routeIs('vehicle.histories')">
                         {{ __('Logs') }}
                     </x-nav-link>
+                    <x-nav-link :href="route('feedback.index')" :active="request()->routeIs('feedback.index')">
+                        {{ __('Feedback') }}
+                    </x-nav-link>
                 </div>
             </div>
 
@@ -72,8 +75,8 @@
                         <path :class="{'hidden': open, 'inline-flex': ! open }" class="inline-flex"
                             stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                             d="M4 6h16M4 12h16M4 18h16" />
-                        <path :class="{'hidden': ! open, 'inline-flex': open }" class="hidden" stroke-linecap="round"
-                            stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                        <path :class="{'hidden': ! open, 'inline-flex': open }" class="hidden"
+                            stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
                     </svg>
                 </button>
             </div>
