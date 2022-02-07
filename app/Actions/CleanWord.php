@@ -2,28 +2,27 @@
 
 namespace App\Actions;
 
-use Illuminate\Support\Str;
-
 class CleanWord
 {
-    protected $word;
+    private $stemmerFactory ;
+    private $stemmer ;
+    private $stopWordRemoverFactory ;
+    private $stopword  ;
 
-    public function __construct($word = null)
+    public function __construct()
     {
-        $this->word = $word;
+        $this->stemmerFactory = new \Sastrawi\Stemmer\StemmerFactory();
+        $this->stemmer = $this->stemmerFactory->createStemmer();
+        $this->stopWordRemoverFactory = new \Sastrawi\StopWordRemover\StopWordRemoverFactory();
+        $this->stopword = $this->stopWordRemoverFactory->createStopWordRemover();
     }
 
-    public function setWord($word)
+    public function format($text)
     {
-        $this->word = $word;
+        $text = strtolower($text);
+        $text = $this->stemmer->stem($text);
+        $text = $this->stopword->remove($text);
 
-        return $this;
-    }
-
-    public function build()
-    {
-        $str = Str::of($this->word)->trim()->lower();
-
-        return preg_replace('/[^a-z ]/i', '', $str);
+        return $text;
     }
 }

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Actions\CleanWord;
 use App\Models\Feedback;
 use App\Services\NaiveBayesServices;
 use Illuminate\Http\Request;
@@ -34,7 +35,7 @@ class FeedbackController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CleanWord $word, Request $request)
     {
         if (! $request->filled('name') || ! $request->filled('content')) {
             return back();
@@ -43,9 +44,11 @@ class FeedbackController extends Controller
         $train = new NaiveBayesServices();
 
         $sentiment = $train->predict($request->content);
+        $formated = $word->format($request->content);
 
         $feedback = Feedback::create($request->all());
         $feedback->sentiment = $sentiment;
+        $feedback->formated = $formated;
         $feedback->save();
 
         return back();

@@ -8,13 +8,13 @@ class Dashboard extends Controller
 {
     public function main()
     {
-        $personCount = DB::table('person')->count();
-        $vehicleCount = DB::table('vehicle')->count();
-        $todayVehicle = DB::table('vehicle')->whereDate('effective_date', today())->count();
+        $countFeedback = DB::table('feedback')->count();
+        $negativeFeedback = DB::table('feedback')->where('sentiment', 'N')->count();
+        $positiveFeedback = DB::table('feedback')->where('sentiment', 'P')->count();
 
         return view('dashboard')
-            ->with('today_vehicle', $todayVehicle)
-            ->with('person', $personCount)
-            ->with('vehicle', $vehicleCount);
+            ->with('countFeedback', $countFeedback)
+            ->with('negativeFeedback', $negativeFeedback)
+            ->with('positiveFeedback', $positiveFeedback);
     }
 }
