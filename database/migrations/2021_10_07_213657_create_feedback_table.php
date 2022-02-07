@@ -17,6 +17,7 @@ class CreateFeedbackTable extends Migration
             $table->id();
             $table->string('name');
             $table->string('content');
+            $table->string('Tokenizer');
             $table->string('sentiment')->nullable();
             $table->timestamps();
         });

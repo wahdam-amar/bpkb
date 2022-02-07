@@ -14,10 +14,16 @@ class FeedbackTable extends DataTableComponent
         return [
             Column::make('name')
             ->sortable()
-            ->searchable(),
+            ->searchable()
+            ->format(function ($value) {
+                return ucfirst($value);
+            }),
             Column::make('content')
             ->sortable()
-            ->searchable(),
+            ->searchable()
+            ->format(function ($value) {
+                return ucfirst($value);
+            }),
             Column::make('sentiment')
             ->sortable()
             ->searchable()

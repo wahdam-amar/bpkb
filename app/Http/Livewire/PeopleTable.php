@@ -42,7 +42,10 @@ class PeopleTable extends DataTableComponent
         return [
             Column::make('Name')
                 ->sortable()
-                ->searchable(),
+                ->searchable()
+                ->format(function ($value) {
+                    return ucfirst($value);
+                }),
             Column::make('Job')
                 ->sortable()
                 ->searchable(),
