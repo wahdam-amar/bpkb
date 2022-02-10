@@ -10,7 +10,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
     <link rel="stylesheet"
         href="https://cdn.jsdelivr.net/gh/creativetimofficial/tailwind-starter-kit/compiled-tailwind.min.css" />
-    <title>Tanggapan Notifikasi Pajak dengan Whatsapp</title>
 
     <style>
         #live-chat {
@@ -129,7 +128,7 @@
         <div class="container px-4 mx-auto flex flex-wrap items-center justify-between">
             <div class="w-full relative flex justify-between lg:w-auto lg:static lg:block lg:justify-start">
                 <a class="text-sm font-bold leading-relaxed inline-block mr-4 py-2 whitespace-nowrap uppercase text-white"
-                    href="/">Selamat Datang</a>
+                    href="/">Welcome</a>
                 <button
                     class="cursor-pointer text-xl leading-none px-3 py-1 border border-solid border-transparent rounded bg-transparent block lg:hidden outline-none focus:outline-none"
                     type="button" onclick="toggleNavbar('example-collapse-navbar')">
@@ -139,13 +138,13 @@
             <div class="lg:flex flex-grow items-center bg-white lg:bg-transparent lg:shadow-none hidden"
                 id="example-collapse-navbar">
                 <ul class="flex flex-col lg:flex-row list-none lg:ml-auto">
-                    <!--<li class="flex items-center sm:bg-gray-100">-->
-                    <!--    <a href="{{ route('login') }}"-->
-                    <!--        class="bg-white text-gray-800 active:bg-gray-100 text-xs font-bold uppercase px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none lg:mr-1 lg:mb-0 ml-3 mb-3"-->
-                    <!--        style="transition: all 0.15s ease 0s;">-->
-                    <!--        Login-->
-                    <!--    </a>-->
-                    <!--</li>-->
+                    <li class="flex items-center sm:bg-gray-100">
+                        <a href="{{ route('login') }}"
+                            class="bg-white text-gray-800 active:bg-gray-100 text-xs font-bold uppercase px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none lg:mr-1 lg:mb-0 ml-3 mb-3"
+                            style="transition: all 0.15s ease 0s;">
+                            Login
+                        </a>
+                    </li>
                 </ul>
             </div>
         </div>
@@ -162,18 +161,13 @@
                     <div class="w-full lg:w-6/12 px-4 ml-auto mr-auto text-center">
                         <div class="pr-12">
                             <h1 class="text-white font-semibold text-5xl">
-                                Kami ingin mendengar pendapat anda
+                                Your story starts with us.
                             </h1>
                             <p class="mt-4 text-lg text-gray-300">
-                                Perkenalkan saya <b><a href="https://instagram.com/hibbann">Hibban Nurcholis</a></b> mahasiswa <b><a href="https://home.amikom.ac.id/">Universitas Amikom Yogyakarta</a></b> Fakultas Teknik Komputer Jurusan Sistem Informasi.</p> 
-                            <br>
-                            <p class="mt-4 text-lg text-gray-300">
-                                Saat ini sedang melakukan penelitian yang berjudul <br><b>"Analisis Sentimen Terhadap Peningkatan Kesadaran Pajak Kendaraan Bermotor Dengan Bot Notifikasi Whatsapp Business Menggunakan Naive Bayes Classifier",</b><br> berlokasi di kantor <b><a href="http://dppad.jatengprov.go.id/up3ad-kab-klaten/">UPPD/Samsat Klaten</a></b>. <br><br>Penelitian ini bertujuan mengetahui bagaimana tanggapan masyarakat dengan adanya pemberitahuan pajak kendaraan bermotor melalui pesan <b><a href="https://www.whatsapp.com/">Whatsapp</a></b>.</p>     
-                            <p class="mt-4 text-lg text-gray-300">
-                                Penelitian ini sangat membutuhkan pendapat dari bapak/ibu dengan harapan mampu memberikan gambaran apakah program seperti ini dapat digunakan sebagai salah satu media dalam upaya meningkatkan kesadaran pajak masyarakat khususnya di Kabupaten Klaten. </p>     
-                            <br>
-                            <br>
-                            <h2 class="text-white font-semibold text-lg">Langkah Untuk Mengirim Tanggapan :</h2>
+                                This is a simple example of a Landing Page you can build using
+                                Tailwind Starter Kit. It features multiple CSS components
+                                based on the Tailwindcss design system.
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -186,7 +180,6 @@
                 </svg>
             </div>
         </div>
-        
         <section class="pb-20 bg-gray-300 -mt-24">
             <div class="container mx-auto px-4">
                 <div class="flex flex-wrap">
@@ -196,11 +189,12 @@
                             <div class="px-4 py-5 flex-auto">
                                 <div
                                     class="text-white p-3 text-center inline-flex items-center justify-center w-12 h-12 mb-5 shadow-lg rounded-full bg-red-400">
-                                    <i class="fas fa-mouse-pointer"></i>
+                                    <i class="fas fa-award"></i>
                                 </div>
-                                <h6 class="text-xl font-semibold">1. Klik Menu Feedback</h6>
+                                <h6 class="text-xl font-semibold">Awarded Agency</h6>
                                 <p class="mt-2 mb-4 text-gray-600">
-                                    Langkah pertama untuk mengisi survey ini, dapat dengan mengklik menu feedback di pojok kanan bawah.
+                                    Divide details about your product or agency work into parts.
+                                    A paragraph describing a feature will be enough.
                                 </p>
                             </div>
                         </div>
@@ -211,11 +205,12 @@
                             <div class="px-4 py-5 flex-auto">
                                 <div
                                     class="text-white p-3 text-center inline-flex items-center justify-center w-12 h-12 mb-5 shadow-lg rounded-full bg-blue-400">
-                                    <i class="fas fa-keyboard"></i>
+                                    <i class="fas fa-retweet"></i>
                                 </div>
-                                <h6 class="text-xl font-semibold">2. Input Nama dan Tanggapan</h6>
+                                <h6 class="text-xl font-semibold">Free Revisions</h6>
                                 <p class="mt-2 mb-4 text-gray-600">
-                                    Kemudian isi kolom Nama dan Pesan, pesan diisi dengan pendapat yang ingin disampaikan.
+                                    Keep you user engaged by providing meaningful information.
+                                    Remember that by this time, the user is curious.
                                 </p>
                             </div>
                         </div>
@@ -226,27 +221,17 @@
                             <div class="px-4 py-5 flex-auto">
                                 <div
                                     class="text-white p-3 text-center inline-flex items-center justify-center w-12 h-12 mb-5 shadow-lg rounded-full bg-green-400">
-                                    <i class="fas fa-hand-pointer"></i>
+                                    <i class="fas fa-fingerprint"></i>
                                 </div>
-                                <h6 class="text-xl font-semibold">3. Klik Submit</h6>
+                                <h6 class="text-xl font-semibold">Verified Company</h6>
                                 <p class="mt-2 mb-4 text-gray-600">
-                                    Langkah terakhir adalah dengan klik tombol "Submit" untuk mengirim tanggapan anda dan selesai.
+                                    Write a few lines about each one. A paragraph describing a
+                                    feature will be enough. Keep you user engaged!
                                 </p>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="container relative mx-auto">
-                <div class="items-center flex flex-wrap">
-                    <div class="w-full lg:w-6/12 px-4 ml-auto mr-auto text-center">
-                        <div class="pr-12">
-                            <h1 class="text-grey font-semibold text-5xl">
-                                Terimakasih
-                            </h1>
-                        </div>
-                    </div>
-                </div>
-            </div>
             </div>
         </section>
     </main>
