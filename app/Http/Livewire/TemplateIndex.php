@@ -10,6 +10,7 @@ class TemplateIndex extends Component
 {
     public Template $template;
     public $saved;
+    public $phone;
 
     protected $rules = [
         'template.content' => 'required',
@@ -27,7 +28,7 @@ class TemplateIndex extends Component
 
     public function sendMessage(TwelioService $twelio)
     {
-        $twelio->content($this->template->content)->send('089637058723');
+        $twelio->content($this->template->content)->send($this->phone);
     }
 
     public function submit()

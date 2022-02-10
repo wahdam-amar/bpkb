@@ -15,6 +15,13 @@
                             class="text-slate-900 resize-none font-medium appearance-none textarea h-24 textarea-bordered w-full bg-transparent border-0 border-opacity-0 shadow-none border-transparent focus:border-transparent focus:ring-0">{{ $content->content ?? '' }}</textarea>
                     </div>
 
+
+                    <div class="mb-6">
+                        <label for="phone"
+                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Test</label>
+                        <input wire:model="phone" class="w-full p-4 bg-gray-300 text-gray-900 rounded-md" "phone">
+                    </div>
+
                     <div class="inline-flex rounded-md shadow-sm">
                         <button type="button" wire:click="submit"
                             class="py-2 px-4 text-sm font-medium text-blue-700 bg-white rounded-l-md border border-gray-200 hover:bg-gray-100 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-blue-500 dark:focus:text-white">
