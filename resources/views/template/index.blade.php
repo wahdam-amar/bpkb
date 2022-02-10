@@ -30,41 +30,8 @@
             </div>
         @endif
 
-        {{-- Content --}}
-        <div class="w-full md:w-2/3 flex flex-col mx-auto bg-white shadow-lg rounded-lg overflow-hidden">
-            <div class="bg-gray-600 text-gray-50 text-lg px-6 py-4">
-                <div class="flex justify-between items-center">
-                    <span class="font-bold text-lg md:text-xl">Content</span>
-                    <div class="inline text-sm right">{{ $content->created_at ?? now()->toDateString() }}</div>
-                </div>
-            </div>
+        <livewire:template-index />
 
-            <div class="px-6 py-4 border-t border-gray-200">
-                <form action="{{ route('template.store') }}" method="post">
-                    @csrf
-                    <div class="border rounded-lg p-4 bg-gray-200 my-2">
-                        <textarea name="content" value="{{ $content->content ?? '' }}"
-                            class="text-slate-900 resize-none font-medium appearance-none textarea h-24 textarea-bordered w-full bg-transparent border-0 border-opacity-0 shadow-none border-transparent focus:border-transparent focus:ring-0">{{ $content->content ?? '' }}</textarea>
-                    </div>
-                    <x-button>Save</x-button>
-                </form>
-            </div>
-
-            <div class="bg-gray-200 px-6 py-4">
-                <div class="uppercase text-xs text-gray-600 text-xs">Hint</div>
-                <div class="flex items-center pt-3">
-                    <div class="ml-4 hint-container">
-                        <x-hint-button data-value="$name">Name</x-hint-button>
-                        <x-hint-button data-value="$duedate">Duedate</x-hint-button>
-                        <x-hint-button data-value="$amount">Amount</x-hint-button>
-                        <x-hint-button data-value="$plate">Plate</x-hint-button>
-                        <x-hint-button data-value="$year">Tahun</x-hint-button>
-                    </div>
-                </div>
-            </div>
-        </div>
-        {{-- End::Content --}}
-    </div>
     </div>
 
     @push('scripts')
